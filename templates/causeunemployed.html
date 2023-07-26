@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Depression Pre-Questionnaire</title>
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 20px;
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(115, 181, 124);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="heading">Depression Questionnaire</h1>
+            <p class="title">Please answer these questions according to things that happened in the last three weeks.</p>
+        </header>
+
+        <form id="questionnaireForm"  action="/cause" method = "POST">
+            <div id="additionalFields">
+                <div>
+                    <label for="question1">Do you think you feel sad due to your physical illness?</label>
+                    <select id="question1" name="question1">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+                <div id="illness" style="display: none;">
+                    <label for="illness">What was the illness?</label>
+                    <input type="text" id="illness" name="illness">
+
+                    <label for="medicines">Did you take any heavy medicines for curing it?</label>
+                    <select id="medicines" name="medicines">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question2">Do you feel your surroundings are affected by your being sad/anxious/depressed?</label>
+                    <select id="question2" name="question2">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question3">Are there any changes in your personality due to your unemployment?</label>
+                    <select id="question3" name="question3">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question4">Have you felt you are losing interest in activities you used to love?</label>
+                    <select id="question4" name="question4">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="question5">Have you ever felt like your gender identity was a source of conflict in your relationships, a barrier to your success, or a source which might lead to depression?</label>
+                    <select id="question5" name="question5">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question6"> Are there any changes in your energy level like feeling low or suddenly feeling euphoria and endless energy?</label>
+                    <select id="question6" name="question6">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+               
+                
+                <div>
+                    <label for="negative">Question 6: Have you been thinking a lot about negativity related to your career or anything?</label>
+                    <select id="negative" name="negative">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="gym">Question 7: How many hours do you go out for gym/walk/workouts?</label>
+                    <select id="gym" name="gym">
+                        <option value="lessThan1">Less than 1 hour</option>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="moreThan2">More than 2 hours</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="isolation">Question 8: Do you feel isolated or withdrawn from others?</label>
+                    <select id="isolation" name="isolation">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="selfharm">Question 9: Do you have thoughts of harming yourself or others?</label>
+                    <select id="selfharm" name="selfharm">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+
+                <div style="clear: both;">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // The JavaScript code remains the same...
+    </script>
+</body>
+
+</html>

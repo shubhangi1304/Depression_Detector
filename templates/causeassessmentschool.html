@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Depression Pre-Questionnaire </title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 20px;
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(115, 181, 124);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="heading">Depression Questionnaire</h1>
+            <p class="title">Please answer these questions according to things that happened in the last three weeks.</p>
+        </header>
+
+        <form id="questionnaireForm" action="/cause" method="POST">
+            <div id="additionalFields">
+                <div>
+                    <label for="question1">Question 1: Do you think you feel sad due to your physical illness?</label>
+                    <select id="question1" name="question1">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+                <div id="illness" style="display: none;">
+                    <label for="illness">What was the illness?</label>
+                    <input type="text" id="illness" name="illness">
+
+                    <label for="medicines">Did you take any heavy medicines for curing it?</label>
+                    <select id="medicines" name="medicines">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question2">Do you feel your surroundings are affected by your being sad/anxious/depressed?</label>
+                    <select id="question2" name="question2">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question3">Are there any changes in your personality?</label>
+                    <select id="question3" name="question3">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question4">Have you felt you are losing interest in activities you used to love?</label>
+                    <select id="question4" name="question4">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question5">Have you ever felt like your gender identity was a source of conflict in your relationships, a barrier to your success, or a source which might lead to depression?</label>
+                    <select id="question5" name="question5">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="question6">Question 5: Are there any changes in your energy level like feeling low or suddenly feeling euphoria and endless energy?</label>
+                    <select id="question6" name="question6">
+                        <option value="0">0 - Not at all</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 - Significantly</option>
+                    </select>
+                </div>
+
+                <div id="examFields" style="display: none;">
+                    <label for="appearedInExams">Did you appear in any exams in the last two weeks?</label>
+                    <select id="appearedInExams" name="appearedInExams">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div id="stressFields" style="display: none;">
+                    <label for="examStress">Have you been in a lot of stress due to exams?</label>
+                    <select id="examStress" name="examStress">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div id="examResultFields" style="display: none;">
+                    <label for="examResult">How were your exams?</label>
+                    <select id="examResult" name="examResult">
+                        <option value="good">Good</option>
+                        <option value="bad">Bad</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="safe">Do you feel safe around people at school?</label>
+                    <select id="safe" name="safe">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="support">Are your friends supportive?</label>
+                    <select id="support" name="support">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="games">How many hours do you play games?</label>
+                    <select id="question8" name="questioon8">
+                        <option value="lessThan2">Less than 2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="moreThan3">More than 3 hours</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="study">How many hours do you study?</label>
+                    <select id="study" name="study">
+                        <option value="lessThan2">Less than 2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="moreThan3">More than 3 hours</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="teachers">How are your teachers at school?</label>
+                    <select id="teachers" name="teachers">
+                        <option value="good">Good</option>
+                        <option value="bad">Bad</option>
+                    </select>
+                </div>
+
+                <div style="clear: both;">
+                    <button type="submit" name = "submit" value="Submit">Submit</button>
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        
+        </form>
+    </div>
+
+    <script>
+        // document.getElementById("questionnaireForm").addEventListener("submit", function (event) {
+        //     event.preventDefault();
+
+        //     // Retrieve the selected values from the dropdowns
+        //     const question1 = document.getElementById("question1").value;
+        //     const question2 = document.getElementById("question2").value;
+        //     const question3 = document.getElementById("question3").value;
+        //     const question4 = document.getElementById("question4").value;
+        //     const question5 = document.getElementById("question5").value;
+        //     const question6 = document.getElementById("question6").value;
+        //     const support = document.getElementById("support").value;
+        //     const question8 = document.getElementById("question8").value;
+        //     const study = document.getElementById("study").value;
+        //     const teachers = document.getElementById("teachers").value;
+
+        //     // Retrieve the additional fields' values if needed
+        //     const question1Value = parseInt(question1);
+        //     const question2Value = parseInt(question2);
+        //     const question5Value = parseInt(question5);
+
+        //     let illness = "";
+        //     let medicines = "";
+
+        //     if (question1Value === 3) {
+        //         illness = document.getElementById("illness").value;
+        //         medicines = document.getElementById("medicines").value;
+        //     }
+
+        //     let appearedInExams = "";
+        //     let examStress = "";
+        //     let examResult = "";
+
+        //     if (question2Value === 3) {
+        //         appearedInExams = document.getElementById("appearedInExams").value;
+        //         if (appearedInExams === "yes") {
+        //             examStress = document.getElementById("examStress").value;
+        //             examResult = document.getElementById("examResult").value;
+        //         }
+        //     }
+
+        //     // Log the selected values
+        //     console.log("Question 1:", question1);
+        //     if (question1Value === 3) {
+        //         console.log("Illness Description:", illness);
+        //         console.log("Medicines Taken:", medicines);
+        //     }
+        //     console.log("Question 2:", question2);
+        //     if (question2Value === 3) {
+        //         console.log("Appeared in Exams:", appearedInExams);
+        //         if (appearedInExams === "yes") {
+        //             console.log("Exam Stress:", examStress);
+        //             console.log("Exam Result:", examResult);
+        //         }
+        //     }
+        //     console.log("Question 3:", question3);
+        //     console.log("Question 4:", question4);
+        //     console.log("Question 5:", question5);
+        //     console.log("Question 6:", question6);
+        //     console.log("Question 7:", support);
+        //     console.log("Question 8:", question8);
+        //     console.log("Question 9:", study);
+        //     console.log("Question 10:", teachers);
+
+        //     // You can perform further actions with the selected values here
+
+        //     // Reset the form
+        //     // document.getElementById("questionnaireForm").reset();
+        // });
+
+        // Show/hide additional fields based on selected values
+        document.getElementById("question1").addEventListener("change", function () {
+            const selectedValue = parseInt(this.value);
+            const illnessFields = document.getElementById("illnessFields");
+            if (selectedValue === 3) {
+                illnessFields.style.display = "block";
+            } else {
+                illnessFields.style.display = "none";
+            }
+        });
+
+        document.getElementById("question2").addEventListener("change", function () {
+            const selectedValue = parseInt(this.value);
+            const examFields = document.getElementById("examFields");
+            if (selectedValue === 3) {
+                examFields.style.display = "block";
+            } else {
+                examFields.style.display = "none";
+            }
+        });
+
+        document.getElementById("appearedInExams").addEventListener("change", function () {
+            const selectedValue = this.value;
+            const stressFields = document.getElementById("stressFields");
+            if (selectedValue === "yes") {
+                stressFields.style.display = "block";
+            } else {
+                stressFields.style.display = "none";
+            }
+        });
+
+        document.getElementById("examStress").addEventListener("change", function () {
+            const selectedValue = this.value;
+            const examResultFields = document.getElementById("examResultFields");
+            if (selectedValue === "yes") {
+                examResultFields.style.display = "block";
+            } else {
+                examResultFields.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profiling</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 20px;
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heading {
+            color: rgb(0, 0, 0);
+            
+            
+        }
+
+        .title {
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+
+        .container {
+            height: 600px;
+            width: 500px;
+            background-color: white;
+            box-shadow: 8px 8px 20px rgb(128, 128, 128);
+            position: relative;
+            overflow: hidden;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="text"],
+        input[type="submit"] {
+            margin-top: 5px;
+            padding: 5px;
+            width: 400px;
+            outline: none;
+            border: none;
+            color: rgb(77, 77, 77);
+            background-color: rgb(240, 240, 240);
+            border-radius: 50px;
+            font-size: 18px;
+        }
+
+        input[type="submit"] {
+            height: 60px;
+            width: 150px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right, rgb(115, 181, 124), rgb(91, 255, 99));
+            font-size: 22px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #additionalFields {
+            padding: 20px 40px;
+        }
+
+        #additionalFields div {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        #occupation,
+        #studyLocation,
+        #employmentType {
+            width: 400px;
+        }
+
+        #studyFields,
+        #employmentFields,
+        #unemploymentFields {
+            display: none;
+        }
+    </style>
+    <script>
+        function showAdditionalFields() {
+            var occupationSelect = document.getElementById("occupation");
+            var selectedOption = occupationSelect.options[occupationSelect.selectedIndex].value;
+            
+            var additionalFieldsDiv = document.getElementById("additionalFields");
+
+            // Hide all additional fields initially
+            document.getElementById("studyFields").style.display = "none";
+            document.getElementById("employmentFields").style.display = "none";
+            document.getElementById("unemploymentFields").style.display = "none";
+
+            // Show the appropriate additional fields based on the selected occupation
+            if (selectedOption === "student") {
+                document.getElementById("studyFields").style.display = "block";
+            } else if (selectedOption === "working") {
+                document.getElementById("employmentFields").style.display = "block";
+            } else if (selectedOption === "unemployed") {
+                document.getElementById("unemploymentFields").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="/welcome" method="POST">
+        <h1>Profile</h1>
+        <label for="age">Age:</label>
+        <select id="age" required name="age">
+            <option value="">Select age group</option>
+            <option value="13-18">13-18</option>
+            <option value="19-25">19-25</option>
+            <option value="26-35">26-35</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" required name="gender">
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        </select>
+
+        <label for="occupation">Occupation:</label>
+        <select id="occupation" onchange="showAdditionalFields()" name="occupation" required>
+            <option value="">Select occupation</option>
+            <option value="student">Student</option>
+            <option value="working">Working</option>
+            <option value="unemployed">Unemployed</option>
+        </select>
+
+        <div id="additionalFields">
+            <div id="studyFields" style="display: none;">
+                <label for="studyLocation">Where do you study?</label>
+                <select id="studyLocation" name="studyLocation">
+                    <option value="">Select study location</option>
+                    <option value="school">School</option>
+                    <option value="college">College</option>
+                    <option value="homeschool">Homeschool</option>
+                </select>
+            </div>
+
+            <div id="employmentFields" style="display: none;">
+                <label for="employmentType">Which type of employment is yours?</label>
+                <select id="employmentType" name="employmentType">
+                    <option value="">Select employment type</option>
+                    <option value="selfemployed">Self-employed</option>
+                    <option value="parttime">Part-time job</option>
+                    <option value="fulltime">Full-time job</option>
+                </select>
+            </div>
+
+            <div id="unemploymentFields" style="display: none;">
+                <label for="unemploymentDuration">From how long don't you have a job?</label>
+                
+                <select id="unemploymentDuration" name="unemploymentDuration">
+                    <option value="">Select duration</option>
+                    <option value="Less">Less than 6 months</option>
+                    <option value="med">More than 6 months and less than a year</option>
+                    <option value="high">More than a year</option>
+                </select>
+            </div>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function showAdditionalFields() {
+            var occupationSelect = document.getElementById("occupation");
+            var selectedOption = occupationSelect.options[occupationSelect.selectedIndex].value;
+            
+            var studyFieldsDiv = document.getElementById("studyFields");
+            var employmentFieldsDiv = document.getElementById("employmentFields");
+            var unemploymentFieldsDiv = document.getElementById("unemploymentFields");
+
+            // Hide all additional fields initially
+            studyFieldsDiv.style.display = "none";
+            employmentFieldsDiv.style.display = "none";
+            unemploymentFieldsDiv.style.display = "none";
+
+            // Show the appropriate additional fields based on the selected occupation
+            if (selectedOption === "student") {
+                studyFieldsDiv.style.display = "block";
+                document.getElementById("studyLocation").required = true;
+            } else if (selectedOption === "working") {
+                employmentFieldsDiv.style.display = "block";
+                document.getElementById("employmentType").required = true;
+            } else if (selectedOption === "unemployed") {
+                unemploymentFieldsDiv.style.display = "block";
+                document.getElementById("unemploymentDuration").required = true;
+            } else {
+                // Reset the additional fields and their required status if no occupation is selected
+                document.getElementById("studyLocation").required = false;
+                document.getElementById("employmentType").required = false;
+                document.getElementById("unemploymentDuration").required = false;
+            }
+        }
+    </script>
+</body>
+
+</html>

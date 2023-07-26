@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Depression Detection Assessment Phase 2</title>
+    <style>
+            
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 20px;
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(115, 181, 124);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Depression Detection Assessment Phase 2</h1>
+        <form id="questionnaireForm" action="/result" method="POST">
+            <div>
+                <label for="question7">In your family, has anyone suffered from depression?</label>
+                <select id="question7" name="question7">
+                    <option value="0">0 - Not at all</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3 - Significantly</option>
+                    
+                </select>
+            </div>
+            <div>
+                <label for="question8">Do you have feelings of worthlessness due to something that happened sometime ago?</label>
+                <select id="question8" name="question8">
+                    <option value="0">0 - Not at all</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3 - Significantly</option>
+                </select>
+            </div>
+            <div>
+                <label for="question9">3. In the last 2-3 weeks, how is your sleep schedule?</label>
+                <select id="question9" name="question9">
+                    <option value="0">Not at all disturbed</option>
+                    <option value="1">Slightly disturbed</option>
+                    <option value="2">Moderately disturbed</option>
+                    <option value="3">Significantly disturbed</option>
+                </select>
+            </div>
+            <div>
+                <label for="question10">4. Do you experience any Hallucinations?</label>
+                <select id="question10" name="question10">
+                    <option value="0">Not at all</option>
+                    <option value="1">Slightly</option>
+                    <option value="2">Moderately</option>
+                    <option value="3">Significantly</option>
+                </select>
+            </div>
+            <div>
+                <label for="treatment">Have you met a psychiatrist or psychologist yet?</label>
+                <select id="treatment" name="treatment">
+                    <option value="psychiatrist">Yes, a psychiatrist</option>
+                    <option value="psychologist">Yes, a psychologist</option>
+                    <option value="none">No, neither</option>
+                    <option value="both">Yes, both</option>
+                </select>
+            </div>
+            <div>
+                <label for="question11">Do you find yourself avoiding social activities during the winter months?</label>
+                <select id="question11" name="question11">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div>
+                <label for="question12">Do you feel or have you noticed hormonal changes as a reason for your being depressed?</label>
+                <select id="question12" name="question12">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" name="Submit" value="submit">Submit</button>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <!-- <script>
+        document.getElementById("questionnaireForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Retrieve the selected values from the dropdowns
+            const familyDepression = document.getElementById("question7").value;
+            const worthlessnessFeeling = parseInt(document.getElementById("question7").value);
+            const sleepSchedule = parseInt(document.getElementById("question8").value);
+            const question9 = parseInt(document.getElementById("question9").value);
+            const treatment = document.getElementById("treatment").value;
+            const avoidingSocialActivities = document.getElementById("question11").value;
+            const hormonalChanges = document.getElementById("question12").value;
+
+            // Log the selected values
+            console.log("Question 1: In your family, has anyone suffered from depression?", familyDepression);
+            console.log("Question 2: Do you have feelings of worthlessness due to something that happened sometime ago?", worthlessnessFeeling);
+            console.log("Question 3: In the last 2-3 weeks, how is your sleep schedule?", sleepSchedule);
+            console.log("Question 4: Do you experience any question9?", question9);
+            console.log("Question 5: Have you met a psychiatrist or psychologist yet?", treatment);
+            console.log("Question 6: Do you find yourself avoiding social activities during the winter months?", avoidingSocialActivities);
+            console.log("Question 7: Do you feel or have you noticed hormonal changes as a reason for your being depressed?", hormonalChanges);
+
+            // You can perform further actions with the selected values here
+
+            // Reset the form
+            this.reset();
+        });
+    </script> -->
+</body>
+</html>
