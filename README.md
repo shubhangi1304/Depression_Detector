@@ -38,4 +38,5 @@ The `calculate_depression_type` function takes a row of user input, calculates t
 
 Follow the on-screen instructions to register, log in, and complete the depression assessment questionnaire. The application will provide you with an assessment of your depression type and severity.
 
-##Web-App link: [https://depression-detector--shubhangigupta8.repl.co/](https://depression-detector--shubhangigupta8.repl.co/)
+## Web-App link
+[https://depression-detector--shubhangigupta8.repl.co/](https://depression-detector--shubhangigupta8.repl.co/)
