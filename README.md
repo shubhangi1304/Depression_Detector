@@ -41,3 +41,7 @@ Follow the on-screen instructions to register, log in, and complete the depressi
 ## Web-App link
 Web-App is hosted using Replit. Click on link to access the application.
 [https://depression-detector--shubhangigupta8.repl.co/](https://depression-detector--shubhangigupta8.repl.co/)
+
+## Contributors:
+[Shubhangi Gupta](https://github.com/shubhangi1304)
+[Abhishek Sharma](https://github.com/anonymous300502)
